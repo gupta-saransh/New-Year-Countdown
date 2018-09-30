@@ -5,16 +5,28 @@
    <script type="text/javascript" src="main.js"></script>
    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
    <link href="style.css" rel="stylesheet">
-
   <head>
     <body onload="update()">
       <div class="main">
 <h2>Time Until New Year!</h2>
-<div id="date">
-
-</div>
-<br>
-Days
+<div id="clockdiv"> 
+  <div> 
+    <span class="days" id="day"></span> 
+    <div class="smalltext">Days</div> 
+  </div> 
+  <div> 
+    <span class="hours" id="hour"></span> 
+    <div class="smalltext">Hours</div> 
+  </div> 
+  <div> 
+    <span class="minutes" id="minute"></span> 
+    <div class="smalltext">Minutes</div> 
+  </div> 
+  <div> 
+    <span class="seconds" id="second"></span> 
+    <div class="smalltext">Seconds</div> 
+  </div> 
+</div> 
         <div class="container">
         Year Completed:
       <div id="Progress_Status" style="margin:0 auto;">
@@ -25,4 +37,5 @@ Days
 </div>
 <script type="text/javascript" src="date.js"></script>
 <script type="text/javascript" src="main.js"></script>
+
     </body>

@@ -1,32 +1,26 @@
-
-            var today = new Date();
-          var dd = today.getDate();
-          var mm = today.getMonth()+1; //January is 0!
-          var yyyy = today.getFullYear();
-
-          if(dd<10) {
-          dd = '0'+dd
-          }
-
-          if(mm<10) {
-          mm = '0'+mm
-          }
-          today = dd + '/' + mm + '/' + yyyy;
-          var minutes = 1000*60;
-          var hours = minutes*60;
-          var days = hours*24;
-
-          var foo_date1 = getDateFromFormat(today, "d/M/y");
-          var foo_date2 = getDateFromFormat("31/12/" + yyyy, "d/M/y");
-
-          var diff_date = Math.round((foo_date2 - foo_date1)/days);
-          document.getElementById('date').innerHTML=diff_date;
-          console.log(today);
-          var percent = Math.round(((365-diff_date)/365)*100)
-         //alert("Diff date is: " + Math.round(percent)+"%" );
-         function update() {
-   var element = document.getElementById("myprogressBar");
+var deadline = new Date("dec 31, 2018 23:59:59").getTime(); 
+  
+var x = setInterval(function() { 
+  
+var now = new Date().getTime(); 
+var t = deadline - now; 
+var days = Math.floor(t / (1000 * 60 * 60 * 24)); 
+var hours = Math.floor((t%(1000 * 60 * 60 * 24))/(1000 * 60 * 60)); 
+var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60)); 
+var seconds = Math.floor((t % (1000 * 60)) / 1000); 
+document.getElementById("day").innerHTML =days ; 
+document.getElementById("hour").innerHTML =hours; 
+document.getElementById("minute").innerHTML = minutes;  
+document.getElementById("second").innerHTML =seconds;  
+var percent = Math.round(((365-days)/365)*100);
+var element = document.getElementById("myprogressBar");
    var width = percent;
        element.style.width = width+ '%';
        element.innerHTML = width * 1  + '%';
-}
+if (t < 0) { 
+        clearInterval(x); 
+        document.getElementById("day").innerHTML ='0'; 
+        document.getElementById("hour").innerHTML ='0'; 
+        document.getElementById("minute").innerHTML ='0' ;  
+        document.getElementById("second").innerHTML = '0'; } 
+}, 1000); 
